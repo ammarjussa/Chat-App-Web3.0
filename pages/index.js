@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="relative">
       <Login />
-      <div className="w-full h-screen relative overflow-hidden">
+      <div className="w-full h-screen relative overflow-hidden brightness-75 ">
         <Image
           src="https://links.papareact.com/55n"
           layout="fill"
