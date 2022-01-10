@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { useMoralis } from "react-moralis";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const { authenticate, isAuthenticating, isAuthenticated } = useMoralis();
+  const router = useRouter();
 
   if (isAuthenticated) {
     router.push("/home");
