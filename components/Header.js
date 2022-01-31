@@ -2,9 +2,11 @@ import Image from "next/image";
 import { useMoralis } from "react-moralis";
 import Avatar from "./Avatar";
 import ChangeUsername from "./ChangeUsername";
+import { useRouter } from "next/router";
 
 const Header = () => {
-  const { user } = useMoralis();
+  const { user, logout } = useMoralis();
+  const router = useRouter();
 
   return (
     <div className="sticky top-0 p-5 z-50 shadow-sm border-b-2 border-pink-700 text-white">
@@ -24,6 +26,17 @@ const Header = () => {
           <h1 className="text-3xl">Welcome to Web3 Chat App</h1>
           <h2 className="text-4xl font-bold">{user?.get("username")}</h2>
           <ChangeUsername />
+          <div className="text-sm">
+            <button
+              className="text-white hover:text-pink-700"
+              onClick={() => {
+                logout();
+                router.push("/");
+              }}
+            >
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>
